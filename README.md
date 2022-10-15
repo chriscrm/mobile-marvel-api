@@ -30,12 +30,12 @@ swagger:  `http://localhost:8010/api/v1/swagger-ui.html`
 ### API endpoints
 base-url: `http://localhost:8010`
 context-path: `/api/v1/marvel`
-web request: `/characters`
+web request: `/comics`
 
 
 *Endpoint used to fetch all Comics*
 ```bash
-http://localhost:8010/api/v1/marvel/characters
+http://localhost:8010/api/v1/marvel/comics
 ```
 -----------------
 
