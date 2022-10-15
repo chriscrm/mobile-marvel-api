@@ -25,12 +25,12 @@ public class CharacterServiceImpl implements CharacterService {
 	 */
 	@Override
 	public CharacterEntity findByNameAndComicAndSerie(String name, String comic, String serie) {
+//		
+//		CharacterEntity characterEntity = characterRepository.findCharacterByNameAndComicAndSerie(name, comic, serie);
+//		
+//		if(characterEntity == null) throw new CustomServiceException(ErrorMessages.CHARACTER_NOT_FOUND.getErrorMessage());
 		
-		CharacterEntity characterEntity = characterRepository.findCharacterByNameAndComicAndSerie(name, comic, serie);
-		
-		if(characterEntity == null) throw new CustomServiceException(ErrorMessages.CHARACTER_NOT_FOUND.getErrorMessage());
-		
-		return characterEntity;
+		return null;
 	}
 
 }
