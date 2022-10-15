@@ -4,7 +4,6 @@ import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,61 +25,28 @@ public class CharactersController {
 	}
 
 	/** 
-	 * GET Character by its name :::::::::::::::::
-	 * @GetMapping Get Character by name
+	 * GET Character by its name, comic and serie :::::::::::::::::
+	 * @GetMapping Get Character
 	 * @return Returns a CharacterModelResponse and ResponseEntity with status 200 if success
 	 */
-	@Operation(summary = "Get a Character by its name")
+	@Operation(summary = "Get a Character by its name, comic and serie")
 	@ApiResponses(value = { 
 			@ApiResponse(responseCode = "200", description = "Character found", 
 		    content = { @Content(mediaType = "application/json", 
 		      schema = @Schema(implementation = String.class)) }), // TODO
-		  @ApiResponse(responseCode = "400", description = "Invalid name supplied", 
+		  @ApiResponse(responseCode = "400", description = "Invalid name, comic or serie supplied", 
 		    content = @Content), 
 		  @ApiResponse(responseCode = "404", description = "Character not found", 
 		    content = @Content) 
 			  })
-	@GetMapping("/findByName")
-	public ResponseEntity<String> getCharacterByName(@RequestParam String name){
+	@GetMapping()
+	public ResponseEntity<String> getCharacter(@RequestParam String name, 
+			@RequestParam String comic,
+			@RequestParam String serie){
 		// TODO
 		
 		return ResponseEntity.status(HttpStatus.OK).body(name);
 	}
 	
-	
-	@Operation(summary = "Find a Character by comicId")
-	@ApiResponses(value = { 
-			@ApiResponse(responseCode = "200", description = "Character found", 
-		    content = { @Content(mediaType = "application/json", 
-		      schema = @Schema(implementation = String.class)) }), // TODO
-		  @ApiResponse(responseCode = "400", description = "Invalid comicId", 
-		    content = @Content), 
-		  @ApiResponse(responseCode = "404", description = "Character not found", 
-		    content = @Content) 
-			  })
-	@GetMapping("/findByComicId")
-	public ResponseEntity<String> getCharacterByComicId(@RequestParam String comicId){
-		//TODO
-		
-		return ResponseEntity.status(HttpStatus.OK).body(comicId);
-	}
-	
-	
-	@Operation(summary = "Find a Character by serieId")
-	@ApiResponses(value = { 
-			@ApiResponse(responseCode = "200", description = "Character found", 
-		    content = { @Content(mediaType = "application/json", 
-		      schema = @Schema(implementation = String.class)) }), // TODO
-		  @ApiResponse(responseCode = "400", description = "Invalid serieId", 
-		    content = @Content), 
-		  @ApiResponse(responseCode = "404", description = "Character not found", 
-		    content = @Content) 
-			  })
-	@GetMapping("/findBySerieId")
-	public ResponseEntity<String> getCharacterBySerieId(@RequestParam String serieId){
-		//TODO
-		
-		return ResponseEntity.status(HttpStatus.OK).body(serieId);
-	}
 	
 }
