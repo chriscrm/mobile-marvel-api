@@ -9,7 +9,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "character")
+@Table(name = "characters")
 public class CharacterEntity {
 	private long id;
 	private long characterId;
